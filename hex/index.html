@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FNF - Hex</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>FNF Mods</h2>
+    <a href="../index.html">Home</a>
+    <a href="../tabi/">Tabi</a>
+    <a href="../hex/">Hex</a>
+    <a href="../agoti/">Agoti</a>
+    <a href="../whitty/">Whitty</a>
+    <!-- добавляй другие ссылки по мере необходимости -->
+  </div>
+
+  <div class="main">
+    <h1>Friday Night Funkin: Hex</h1>
+    <iframe id="gameFrame" src="" allowfullscreen></iframe>
+
+    <div style="display: flex; gap: 10px;">
+      <button onclick="loadGame()">Play</button>
+      <button onclick="goFullScreen()">Full Screen</button>
+    </div>
+
+    <footer>
+      <p>Friday Night Funkin — это музыкальная игра, покорившая миллионы игроков.</p>
+      <p>Сражайся с модами и побеждай в музыкальных баттлах!</p>
+    </footer>
+  </div>
+
+  <script>
+    function loadGame() {
+      document.getElementById("gameFrame").src = "https://mod.fnfhub.net/26860/";
+    }
+
+    function goFullScreen() {
+      const iframe = document.getElementById("gameFrame");
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
 
