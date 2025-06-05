@@ -3,35 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FNF Mod Game</title>
+  <title>Friday Night Funkin Mod</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: sans-serif;
-      background-color: #111;
-      color: white;
+      background: #111;
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
     }
-
-    h1 {
-      margin: 1rem;
-      font-size: 2rem;
-    }
-
-    iframe {
-      border: none;
-      width: 90vw;
+    #game-container {
+      display: none;
+      width: 90%;
       height: 80vh;
-      max-width: 1280px;
+      max-width: 1000px;
+      border: 3px solid #555;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .btn {
+      margin: 10px;
+      padding: 10px 20px;
+      background: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #0097a7;
+    }
+    .controls {
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>🎵 Welcome to FNF Mod 🎮</h1>
-  <iframe src="https://mod.fnfhub.net/26860/" allowfullscreen></iframe>
+
+  <h1>🎮 FNF Mod: The Game</h1>
+
+  <div class="controls">
+    <button class="btn" onclick="loadGame()">▶ Play</button>
+    <button class="btn" onclick="goFullscreen()">⛶ Full Screen</button>
+  </div>
+
+  <div id="game-container">
+    <iframe id="game-frame" src=""></iframe>
+  </div>
+
+  <script>
+    function loadGame() {
+      const iframe = document.getElementById('game-frame');
+      const container = document.getElementById('game-container');
+      iframe.src = "https://mod.fnfhub.net/26860/";
+      container.style.display = 'block';
+    }
+
+    function goFullscreen() {
+      const iframe = document.getElementById('game-frame');
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
+    }
+  </script>
+
 </body>
 </html>
