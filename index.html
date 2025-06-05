@@ -3,65 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Friday Night Funkin Mod</title>
+  <title>FNF Game Hub</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      padding: 0;
       font-family: sans-serif;
       background: #111;
-      color: #fff;
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #1c1c1c;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border-right: 2px solid #333;
+    }
+
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #00bcd4;
+    }
+
+    .sidebar a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px;
+      background: #2a2a2a;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background: #00bcd4;
+      color: #000;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 20px;
     }
-    #game-container {
-      display: none;
-      width: 90%;
-      height: 80vh;
-      max-width: 1000px;
-      border: 3px solid #555;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
+
+    h1 {
+      margin: 0;
+      margin-bottom: 10px;
     }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+
+    .controls {
+      margin-bottom: 10px;
     }
+
     .btn {
-      margin: 10px;
+      margin: 0 5px;
       padding: 10px 20px;
       background: #00bcd4;
       color: white;
       border: none;
       border-radius: 8px;
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
-      transition: background 0.3s;
     }
+
     .btn:hover {
       background: #0097a7;
     }
-    .controls {
-      margin-bottom: 20px;
+
+    #game-container {
+      display: none;
+      width: 100%;
+      height: 100%;
+      max-height: 80vh;
+      border: 3px solid #555;
+      border-radius: 12px;
+      overflow: hidden;
     }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
   </style>
 </head>
 <body>
 
-  <h1>🎮 FNF Mod: The Game</h1>
-
-  <div class="controls">
-    <button class="btn" onclick="loadGame()">▶ Play</button>
-    <button class="btn" onclick="goFullscreen()">⛶ Full Screen</button>
+  <!-- Sidebar with links -->
+  <div class="sidebar">
+    <h2>🎮 Other Games</h2>
+    <a href="https://mod.fnfhub.net/26860/" target="_blank">🕹️ FNF: Hex Mod</a>
+    <a href="https://mod.fnfhub.net/27872/" target="_blank">🎤 FNF: Indie Cross</a>
+    <a href="https://mod.fnfhub.net/27442/" target="_blank">👹 FNF: VS Tabi</a>
+    <a href="https://mod.fnfhub.net/26911/" target="_blank">🔥 FNF: Agoti Mod</a>
+    <!-- Добавь сюда свои игры -->
   </div>
 
-  <div id="game-container">
-    <iframe id="game-frame" src=""></iframe>
+  <!-- Main Content -->
+  <div class="main">
+    <h1>🎵 FNF Mod: The Game</h1>
+    <div class="controls">
+      <button class="btn" onclick="loadGame()">▶ Play</button>
+      <button class="btn" onclick="goFullscreen()">⛶ Full Screen</button>
+    </div>
+    <div id="game-container">
+      <iframe id="game-frame" src=""></iframe>
+    </div>
   </div>
 
   <script>
